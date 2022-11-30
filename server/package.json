@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "watch": "nodemon index.js"
+    "watch": "nodemon"
   },
   "dependencies": {
     "@apollo/server": "^4.2.1",
