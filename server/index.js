@@ -51,32 +51,36 @@ const server = new ApolloServer({
     resolvers,
 });
 
-const { url } = await startStandaloneServer(server, {
-    listen: { port: 3001 },
-});
-  
-console.log(`🚀  Server ready at: ${url}`);
+const PORT = process.env.PORT || 3001;
+const app = express();
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+const __dirname = path.resolve(path.dirname(''));
 
-// const PORT = process.env.PORT || 3001;
-// const app = express();
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client.build')));
+}
 
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-// const __dirname = path.resolve(path.dirname(''));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+})
 
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '../client.build')));
-// }
+const startApolloServer = async (typeDefs, resolvers) => {
+    await server.start();
+    server.applyMiddleware({
+        app,
+        path: '/graphql'
+    });
+    db.once('open', () => {
+        app.listen(PORT, () => {
+            console.log(`Server running on ${PORT}`);
+        });
+        // const { url } = await startStandaloneServer(server, {
+        //     listen: { port: 3001 },
+        // });
+        // console.log(`🚀  Server ready at: ${url}`);
+    })
+}
+startApolloServer(typeDefs, resolvers);
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// })
-
-// server.start();
-
-// db.once('open', () => {
-//     app.listen(PORT, () => {
-//         console.log(`Server running on ${PORT}`);
-//     });
-// })

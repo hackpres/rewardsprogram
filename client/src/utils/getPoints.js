@@ -6,6 +6,7 @@ export const getPoints = (arr) => {
         } else if (num > 50) {
             return points += num - 50
         }
+        return
     })
     return points
 }
