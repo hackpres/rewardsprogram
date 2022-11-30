@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'path';
 import db from './config/connection.js';
-import { ApolloServer } from '@apollo/server';
+import { ApolloServer } from 'apollo-server-express';
 // import { startStandaloneServer } from '@apollo/server/standalone';
-import mockData from './data/mockData.json' assert { type: "json" };
+// import mockData from './data/mockData.json' assert { type: "json" };
 
 const typeDefs = `#graphql
     type User {
@@ -56,7 +56,8 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-const __dirname = path.resolve(path.dirname(''));
+
+// const __dirname = path.resolve(path.dirname(''));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client.build')));
