@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import db from './config/connection.js';
 import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
+// import { startStandaloneServer } from '@apollo/server/standalone';
 import mockData from './data/mockData.json' assert { type: "json" };
 
 const typeDefs = `#graphql
