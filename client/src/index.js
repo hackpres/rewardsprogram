@@ -6,9 +6,9 @@ import './index.css';
 import App from './App';
 
 
-// const httpLink = createHttpLink({
-//   uri: '/graphql'
-// });
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql'
+});
 // const authLink = setContext((_, { headers }) => {
 //   // return the headers to the context so httpLink can read them
 //   return {
@@ -18,7 +18,7 @@ import App from './App';
 //   };
 // });
 const client = new ApolloClient({
-  uri: '/graphql',
+  Link: httpLink,
   cache: new InMemoryCache(),
 })
 
