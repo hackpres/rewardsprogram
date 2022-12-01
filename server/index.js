@@ -4,6 +4,7 @@ import db from './config/connection.js';
 import { ApolloServer } from 'apollo-server-express';
 // import { startStandaloneServer } from '@apollo/server/standalone';
 // import mockData from './data/mockData.json' assert { type: "json" };
+import cors from 'cors';
 import { typeDefs, resolvers } from './schemas';
 
 const server = new ApolloServer({
@@ -14,6 +15,7 @@ const server = new ApolloServer({
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
