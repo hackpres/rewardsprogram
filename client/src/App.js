@@ -28,6 +28,7 @@ function App() {
       }
     }
   }, [loading, error, data])
+  console.log(data)
   if (loading) return <div>Loading...</div>;
 
   const getNames = (dataSet) => {
