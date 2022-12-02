@@ -13,22 +13,44 @@ function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState('');
   const [quarter, setQuarter] = useState([]);
-  const { loading, error, data } = useQuery(QUERY_USERS);
-  console.log(useQuery(QUERY_USERS))
+  // const { loading, error, data } = useQuery(QUERY_USERS);
+  // console.log(useQuery(QUERY_USERS))
+  // useEffect(() => {
+  //   const onCompleted = (data) => {
+  //     setUsers(data);
+  //   }
+  //   const onError = (error) => <div>{error}</div>
+  //   if(onCompleted || onError) {
+  //     if(onCompleted && !loading && !error) {
+  //       onCompleted(data);
+  //     } else if(onError && !loading && error) {
+  //       onError(error)
+  //     }
+  //   }
+  // }, [loading, error, data])
+  // if (loading) return <div>Loading...</div>;
   useEffect(() => {
-    const onCompleted = (data) => {
-      setUsers(data);
-    }
-    const onError = (error) => <div>{error}</div>
-    if(onCompleted || onError) {
-      if(onCompleted && !loading && !error) {
-        onCompleted(data);
-      } else if(onError && !loading && error) {
-        onError(error)
-      }
-    }
-  }, [loading, error, data])
-  if (loading) return <div>Loading...</div>;
+    const endpoint = 'https://rewardsprogram.vercel.app/graphql';
+    const headers = {
+      "content-type": "application/json",
+    };
+    const graphqlQuery = {
+      "operationName": "fetchUsers",
+      "query": QUERY_USERS,
+      "variables": {}
+    };
+    const options = {
+      "method": "POST",
+      "headers": headers,
+      "body": JSON.stringify(QUERY_USERS)
+    };
+
+    const response = await fetch(endpoint, options);
+    const data = await response.json();
+
+    console.log(data.data)
+    console.log(data.errors)
+  })
 
   const getNames = (dataSet) => {
     const names = [];
