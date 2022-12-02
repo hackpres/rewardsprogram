@@ -29,7 +29,7 @@ function App() {
   //   }
   // }, [loading, error, data])
   // if (loading) return <div>Loading...</div>;
-  useEffect(() => {
+  useEffect( async () => {
     const endpoint = 'https://rewardsprogram.vercel.app/graphql';
     const headers = {
       "content-type": "application/json",
