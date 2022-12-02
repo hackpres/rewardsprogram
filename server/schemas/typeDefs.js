@@ -7,21 +7,21 @@ const typeDefs = gql`
         firstName: String!
         lastName: String!
         dob: String
-        purchaseHistory: PurchaseHistory!
+        purchaseHistory: PurchaseHistory
     }
     type PurchaseHistory {
-        january: [Int!],
-        february: [Int!],
-        march: [Int!],
-        april: [Int!],
-        may: [Int!],
-        june: [Int!],
-        july: [Int!],
-        august: [Int!],
-        september: [Int!],
-        october: [Int!],
-        november: [Int!],
-        december: [Int!],
+        january: [Int],
+        february: [Int],
+        march: [Int],
+        april: [Int],
+        may: [Int],
+        june: [Int],
+        july: [Int],
+        august: [Int],
+        september: [Int],
+        october: [Int],
+        november: [Int],
+        december: [Int],
     }
     type Query {
         users: [User!]!

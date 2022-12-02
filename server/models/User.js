@@ -24,42 +24,54 @@ const userSchema = new Schema(
             type: String
         },
         purchaseHistory: {
-            january: [
-                Number
-            ],
-            february: [
-                Number
-            ],
-            march: [
-                Number
-            ],
-            april: [
-                Number
-            ],
-            may: [
-                Number
-            ],
-            june: [
-                Number
-            ],
-            july: [
-                Number
-            ],
-            august: [
-                Number
-            ],
-            september: [
-                Number
-            ],
-            october: [
-                Number
-            ],
-            november: [
-                Number
-            ],
-            december: [
-                Number
-            ],
+            january: [{
+                type: Number,
+                nullable: true,
+            }],
+            february: [{
+                type: Number,
+                nullable: true,
+            }],
+            march: [{
+                type: Number,
+                nullable: true,
+            }],
+            april: [{
+                type: Number,
+                nullable: true,
+            }],
+            may: [{
+                type: Number,
+                nullable: true,
+            }],
+            june: [{
+                type: Number,
+                nullable: true,
+            }],
+            july: [{
+                type: Number,
+                nullable: true,
+            }],
+            august: [{
+                type: Number,
+                nullable: true,
+            }],
+            september: [{
+                type: Number,
+                nullable: true,
+            }],
+            october: [{
+                type: Number,
+                nullable: true,
+            }],
+            november: [{
+                type: Number,
+                nullable: true,
+            }],
+            december: [{
+                type: Number,
+                nullable: true,
+            }],
         }
     }
 );

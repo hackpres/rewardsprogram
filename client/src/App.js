@@ -15,6 +15,7 @@ function App() {
   const [quarter, setQuarter] = useState([]);
   const { loading, error, data } = useQuery(QUERY_USERS);
   console.log(useQuery(QUERY_USERS))
+  console.log(data)
   useEffect(() => {
     const onCompleted = (data) => {
       setUsers(data);
