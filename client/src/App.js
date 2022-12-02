@@ -29,6 +29,7 @@ function App() {
   //   }
   // }, [loading, error, data])
   // if (loading) return <div>Loading...</div>;
+  let data;
   useEffect( async () => {
     const endpoint = 'https://rewardsprogram.vercel.app/graphql';
     const headers = {
@@ -46,10 +47,11 @@ function App() {
     };
 
     const response = await fetch(endpoint, options);
-    const data = await response.json();
+    const Data = await response.json();
 
-    console.log(data.data)
-    console.log(data.errors)
+    console.log(Data.data)
+    console.log(Data.errors)
+    return data = Data.data;
   })
 
   const getNames = (dataSet) => {
