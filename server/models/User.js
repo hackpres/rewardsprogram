@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
     {
@@ -24,8 +24,42 @@ const userSchema = new Schema(
             type: String
         },
         purchaseHistory: {
-            type: Schema.Types.ObjectId,
-            ref: 'PurchaseHistory'
+            january: [
+                Number
+            ],
+            february: [
+                Number
+            ],
+            march: [
+                Number
+            ],
+            april: [
+                Number
+            ],
+            may: [
+                Number
+            ],
+            june: [
+                Number
+            ],
+            july: [
+                Number
+            ],
+            august: [
+                Number
+            ],
+            september: [
+                Number
+            ],
+            october: [
+                Number
+            ],
+            november: [
+                Number
+            ],
+            december: [
+                Number
+            ],
         }
     }
 );

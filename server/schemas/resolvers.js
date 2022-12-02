@@ -1,12 +1,10 @@
-import { User } from '../models';
+const { User } = require('../models');
+// import mockData from '../data/mockData.json' assert { type: "json" };
 
 const resolvers = {
     Query: {
         users: async () => {
-            return await User.find({})
-        },
-        user: async (parent, { userId }) => {
-            return User.findOne({ _id: userId });
+            return User.find({});
         },
     },
 };

@@ -1,11 +1,11 @@
-import express from 'express';
-import path from 'path';
-import db from './config/connection.js';
-import { ApolloServer } from 'apollo-server-express';
-// import { startStandaloneServer } from '@apollo/server/standalone';
-// import mockData from './data/mockData.json' assert { type: "json" };
-import cors from 'cors';
-import { typeDefs, resolvers } from './schemas';
+const express = require('express');
+const path = require('path');
+const db = require('./config/connection');
+const { ApolloServer } = require('apollo-server-express');
+// const { startStandaloneServer } = require('@apollo/server/standalone';
+// const mockData = require('./data/mockData.json' assert { type: "json" };
+const cors = require('cors');
+const { typeDefs, resolvers } = require('./schemas');
 
 const server = new ApolloServer({
     typeDefs, 

@@ -1,46 +1,46 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const purchaseHistorySchema = new Schema(
     {
-        january: [{
-            type: Number
-        }],
-        february: [{
-            type: Number
-        }],
-        march: [{
-            type: Number
-        }],
-        april: [{
-            type: Number
-        }],
-        may: [{
-            type: Number
-        }],
-        june: [{
-            type: Number
-        }],
-        july: [{
-            type: Number
-        }],
-        august: [{
-            type: Number
-        }],
-        september: [{
-            type: Number
-        }],
-        october: [{
-            type: Number
-        }],
-        november: [{
-            type: Number
-        }],
-        december: [{
-            type: Number
-        }],
+        january: [
+            Number
+        ],
+        february: [
+            Number
+        ],
+        march: [
+            Number
+        ],
+        april: [
+            Number
+        ],
+        may: [
+            Number
+        ],
+        june: [
+            Number
+        ],
+        july: [
+            Number
+        ],
+        august: [
+            Number
+        ],
+        september: [
+            Number
+        ],
+        october: [
+            Number
+        ],
+        november: [
+            Number
+        ],
+        december: [
+            Number
+        ],
     }
 );
 
 const PurchaseHistory = model('PurchaseHistory', purchaseHistorySchema);
 
-module.exports = PurchaseHistory
+module.exports = PurchaseHistory;

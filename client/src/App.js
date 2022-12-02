@@ -14,7 +14,7 @@ function App() {
   const [user, setUser] = useState('');
   const [quarter, setQuarter] = useState([]);
   const { loading, error, data } = useQuery(QUERY_USERS);
-
+  console.log(useQuery(QUERY_USERS))
   useEffect(() => {
     const onCompleted = (data) => {
       setUsers(data);
@@ -28,7 +28,6 @@ function App() {
       }
     }
   }, [loading, error, data])
-  console.log(data)
   if (loading) return <div>Loading...</div>;
 
   const getNames = (dataSet) => {
