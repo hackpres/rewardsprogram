@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 import './index.css';
 import App from './App';
 
 
-const httpLink = createHttpLink({
+const httpLink = new HttpLink({
   uri: '/graphql'
 });
 const authLink = setContext((_, { headers }) => {
