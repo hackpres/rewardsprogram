@@ -4,7 +4,7 @@ const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 // const { startStandaloneServer } = require('@apollo/server/standalone';
 // const mockData = require('./data/mockData.json' assert { type: "json" };
-const cors = require('cors');
+// const cors = require('cors');
 const { typeDefs, resolvers } = require('./schemas/index');
 
 const server = new ApolloServer({
@@ -15,11 +15,11 @@ const server = new ApolloServer({
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, '../client.build')));
 }
 
