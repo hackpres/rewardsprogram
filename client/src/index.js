@@ -14,7 +14,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      Allow: GET, POST
+      Allow: "POST"
     },
   };
 });
