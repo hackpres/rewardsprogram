@@ -7,15 +7,21 @@ const { ApolloServer } = require('apollo-server-express');
 // const cors = require('cors');
 const { typeDefs, resolvers } = require('./schemas/index');
 
+const corsOptions = {
+    origin: "http://localhost:3001",
+    credentials: true
+};
+
 const server = new ApolloServer({
     typeDefs, 
     resolvers,
+    cors: corsOptions
 });
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// app.use(cors());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

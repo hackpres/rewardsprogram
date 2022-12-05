@@ -6,20 +6,20 @@ import './index.css';
 import App from './App';
 
 
-const httpLink = new HttpLink({
-  uri: '/graphql'
-});
-const authLink = setContext((_, { headers }) => {
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      Allow: "POST"
-    },
-  };
-});
+// const httpLink = new HttpLink({
+//   uri: '/graphql'
+// });
+// const authLink = setContext((_, { headers }) => {
+//   // return the headers to the context so httpLink can read them
+//   return {
+//     headers: {
+//       ...headers
+//     },
+//   };
+// });
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  // link: httpLink,
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache(),
 })
 
