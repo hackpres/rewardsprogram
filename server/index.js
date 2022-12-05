@@ -5,7 +5,7 @@ const { ApolloServer } = require('apollo-server-express');
 // const { startStandaloneServer } = require('@apollo/server/standalone';
 // const mockData = require('./data/mockData.json' assert { type: "json" };
 const cors = require('cors');
-const { typeDefs, resolvers } = require('./schemas');
+const { typeDefs, resolvers } = require('./schemas/index');
 
 const server = new ApolloServer({
     typeDefs, 

@@ -9,14 +9,14 @@ import App from './App';
 const httpLink = new HttpLink({
   uri: '/graphql'
 });
-const authLink = setContext((_, { headers }) => {
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers
-    },
-  };
-});
+// const authLink = setContext((_, { headers }) => {
+//   // return the headers to the context so httpLink can read them
+//   return {
+//     headers: {
+//       ...headers
+//     },
+//   };
+// });
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
